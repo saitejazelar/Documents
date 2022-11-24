@@ -1,4 +1,4 @@
-#Azure DevOps Server On-Prem installation Requirements
+# Azure DevOps Server On-Prem installation Requirements
 
 
 * Latest Version of Azure DevOps Server is 2022
@@ -6,7 +6,7 @@
 * Azure DevOps Server can be installed on a Single Server or Multiple Servers.
 
 
-##Installation on a Single Server:
+## Installation on a Single Server:
 
 The Hardware Requirements for the servers are based on the size of the team.
 
