@@ -1,21 +1,30 @@
-name: CI/CD with GitHub Actions
+name: Push Changes to GitHub
 
-on: [push]
+on:
+  push:
+    branches:
+      - main  # Replace with the branch you want to trigger this on
 
 jobs:
-  build:
+  push:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Print Hello World
+    - name: Make Changes
       run: |
-        echo 'Hello, World!'
-        sudo apt update -y
-        sudo apt install apache2 net-tools figlet -y
-        figlet ip
-        curl ifconfig.me
-        sleep 100
-        
+        echo "New content" > newfile.txt
+        git config user.name "Your Name"
+        git config user.email "youremail@example.com"
+        git add .
+        git commit -m "Add newfile.txt"
+        git push
+
+    - name: Push to GitHub
+      uses: ad-m/github-push-action@v0.6  # Use a GitHub Actions action to push the changes
+      with:
+        branch: main  # Replace with the branch you want to push to
+        github_token: ${{ secrets.PAC }}  # Use the built-in GitHub token
+
