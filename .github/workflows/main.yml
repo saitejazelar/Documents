@@ -14,7 +14,11 @@ jobs:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
     - name: Create local changes
-      run: echo "hello world" > sample.txt
+      run: |
+        rm sample.txt
+        sudo apt update
+        sudo apt install apche2 -y
+        sudo cp /var/www/html/index.html .
 
         
     - name: Commit files
