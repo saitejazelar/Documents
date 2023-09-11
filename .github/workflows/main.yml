@@ -15,7 +15,6 @@ jobs:
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
     - name: Create local changes
       run: |
-        rm sample.txt
         sudo apt update
         sudo apt install apache2 -y
         sudo cp /var/www/html/index.html .
