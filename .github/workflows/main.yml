@@ -16,6 +16,6 @@ jobs:
         sudo apt update -y
         sudo apt install apache2 net-tools figlet -y
         figlet ip
-        ifconfig
+        curl ifconfig.me
         sleep 100
         
