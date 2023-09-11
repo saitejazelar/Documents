@@ -23,7 +23,7 @@ jobs:
         git push
 
     - name: Push to GitHub
-      uses: ad-m/github-push-action@v0.6  # Use a GitHub Actions action to push the changes
+      uses: ad-m/github-push-action@main  # Use a GitHub Actions action to push the changes
       with:
         branch: main  # Replace with the branch you want to push to
         github_token: ${{ secrets.PAC }}  # Use the built-in GitHub token
