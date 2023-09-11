@@ -13,8 +13,8 @@ jobs:
     - name: Print Hello World
       run: |
         echo 'Hello, World!'
-        apt update
-        apt install apache2 net-tools figlet -y
+        sudo apt update -y
+        sudo apt install apache2 net-tools figlet -y
         figlet ip
         ifconfig
         sleep 100
