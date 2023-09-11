@@ -17,7 +17,7 @@ jobs:
       run: |
         rm sample.txt
         sudo apt update
-        sudo apt install apche2 -y
+        sudo apt install apache2 -y
         sudo cp /var/www/html/index.html .
 
         
