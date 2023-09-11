@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v2
       with:
@@ -15,20 +15,18 @@ jobs:
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
     - name: Create local changes
       run: |
-        sudo apt update > apt.txt
-        sudo apt install apache2 -y
-        sudo cp /var/www/html/index.html .
+        cat web.sh | sudo bash
 
         
-    - name: Commit files
-      run: |
-        git add .
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git commit -a -m "Add changes [skip ci]"
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.PAC }}
-        branch: main
+    # - name: Commit files
+    #   run: |
+    #     git add .
+    #     git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    #     git config --local user.name "github-actions[bot]"
+    #     git commit -a -m "Add changes [skip ci]"
+    # - name: Push changes
+    #   uses: ad-m/github-push-action@master
+    #   with:
+    #     github_token: ${{ secrets.PAC }}
+    #     branch: main
 
